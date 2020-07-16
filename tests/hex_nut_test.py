@@ -12,8 +12,9 @@ class HexNutTest(unittest.TestCase):
     """
 
     def test_make(self):
-        box = HexNut.make()
-        self.assertEqual(box.TypeId, 'Part::TopoShape')
+        hex_nut = HexNut.make()
+        self.assertEqual(len(hex_nut.Faces), 9)
+        self.assertEqual(hex_nut.TypeId, 'Part::TopoShape')
 
 
 if __name__ == '__main__':
