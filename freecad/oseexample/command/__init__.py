@@ -1,4 +1,4 @@
 """Commands users can perform in FreeCAD's GUI."""
-from ._add_box import AddBoxCommand
+from ._add_hex_nut import AddHexNutCommand
 
-__all__ = ['AddBoxCommand']
+__all__ = ['AddHexNutCommand']

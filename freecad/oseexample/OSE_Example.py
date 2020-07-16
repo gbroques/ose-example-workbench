@@ -1,7 +1,7 @@
 """Command Registry Module"""
 import FreeCADGui as Gui
 
-from .command import AddBoxCommand
+from .command import AddHexNutCommand
 
 #: Command Namespace
 command_namespace = 'OSEExample'
@@ -12,19 +12,14 @@ def register_commands():
     Register all workbench commands,
     and associate them to toolbars, menus, sub-menus, and context menu.
     """
-    add_box_key = _register(AddBoxCommand.NAME, AddBoxCommand())
+    add_hex_nut_key = _register(AddHexNutCommand.NAME, AddHexNutCommand())
 
     #: Main Toolbar Commands
     main_toolbar_commands = [
-        add_box_key
+        add_hex_nut_key
     ]
 
-    #: Main Menu Commands
-    main_menu_commands = [
-        add_box_key
-    ]
-
-    return main_toolbar_commands, main_menu_commands
+    return main_toolbar_commands
 
 
 def _register(name, command):

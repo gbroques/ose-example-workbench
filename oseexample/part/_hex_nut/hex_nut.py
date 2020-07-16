@@ -1,7 +1,7 @@
 import Part
 
 
-class Box:
+class HexNut:
 
     @staticmethod
     def make():

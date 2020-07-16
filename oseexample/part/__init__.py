@@ -1,3 +1,3 @@
-from ._box import Box
+from ._hex_nut import HexNut
 
-__all__ = ['Box']
+__all__ = ['HexNut']

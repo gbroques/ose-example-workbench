@@ -19,10 +19,9 @@ class ExampleWorkbench(Gui.Workbench):
         """
         Executed when FreeCAD starts
         """
-        main_toolbar, main_menu = register_commands()
+        main_toolbar = register_commands()
 
         self.appendToolbar('OSE Example', main_toolbar)
-        self.appendMenu('OSE Example', main_menu)
 
     def Activated(self):
         """

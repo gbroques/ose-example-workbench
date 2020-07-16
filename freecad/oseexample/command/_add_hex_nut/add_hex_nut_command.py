@@ -2,29 +2,29 @@ import FreeCAD as App
 import Part
 
 from freecad.oseexample.icon import get_icon_path
-from oseexample.part import Box
+from oseexample.part import HexNut
 
 
-class AddBoxCommand:
+class AddHexNutCommand:
     """
-    Command to add a Box.
+    Command to add a Hex Nut.
     """
 
-    NAME = 'AddBox'
+    NAME = 'AddHexNut'
 
     def Activated(self):
         document = App.ActiveDocument
         if not document:
             document = App.newDocument()
-        box = Box.make()
-        Part.show(box)
+        hex_nut = HexNut.make()
+        Part.show(hex_nut)
 
     def IsActive(self):
         return True
 
     def GetResources(self):
         return {
-            'Pixmap': get_icon_path('Box.svg'),
-            'MenuText': 'Add Box',
-            'ToolTip': 'Add Box'
+            'Pixmap': get_icon_path('HexNut.svg'),
+            'MenuText': 'Add Hex Nut',
+            'ToolTip': 'Add Hex Nut'
         }
