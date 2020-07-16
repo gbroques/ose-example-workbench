@@ -7,10 +7,11 @@ from FreeCAD import Matrix, Vector
 class HexNut:
 
     @staticmethod
-    def make():
-        height = 4
-        hexagonal_prism = make_hexagonal_prism(10, height)
-        cylinder = Part.makeCylinder(3, height)
+    def make(flat_to_flat_distance: float = 10.0,
+             hole_diameter: float = 6.0,
+             height: float = 4.0) -> Part.Solid:
+        hexagonal_prism = make_hexagonal_prism(flat_to_flat_distance, height)
+        cylinder = Part.makeCylinder(hole_diameter / 2.0, height)
         return hexagonal_prism.cut(cylinder)
 
 
