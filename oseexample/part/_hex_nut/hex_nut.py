@@ -10,6 +10,10 @@ class HexNut:
     def make(flat_to_flat_distance: float = 10.0,
              hole_diameter: float = 6.0,
              height: float = 4.0) -> Part.Solid:
+        if hole_diameter >= flat_to_flat_distance:
+            error_message_template = 'Hole diameter of "{}" must be less than flat-to-flat distance of "{}".'
+            raise ValueError(error_message_template.format(
+                hole_diameter, flat_to_flat_distance))
         hexagonal_prism = make_hexagonal_prism(flat_to_flat_distance, height)
         cylinder = Part.makeCylinder(hole_diameter / 2.0, height)
         return hexagonal_prism.cut(cylinder)
@@ -22,7 +26,7 @@ def make_hexagonal_prism(minimal_diameter: float, height: float) -> Part.Solid:
 
 
 def make_hexagon_wire(minimal_diameter: float) -> Part.Wire:
-    """Make hexagon wire.
+    r"""Make hexagon wire.
     ::
           _____     ┯
          /     \    |
