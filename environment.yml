@@ -1,0 +1,6 @@
+name: oseexample
+channels:
+  - conda-forge
+  - gbroques
+dependencies:
+  - ose-workbench-platform==0.1.0b1
