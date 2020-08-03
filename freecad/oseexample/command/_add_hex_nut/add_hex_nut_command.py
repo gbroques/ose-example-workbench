@@ -2,7 +2,7 @@ import FreeCAD as App
 import Part
 
 from freecad.oseexample.icon import get_icon_path
-from oseexample.part import HexNut
+from freecad.oseexample.part_feature import create_hex_nut
 
 
 class AddHexNutCommand:
@@ -16,8 +16,8 @@ class AddHexNutCommand:
         document = App.ActiveDocument
         if not document:
             document = App.newDocument()
-        hex_nut = HexNut.make()
-        Part.show(hex_nut)
+        create_hex_nut(document, 'HexNut')
+        document.recompute()
 
     def IsActive(self):
         return True
