@@ -1,8 +1,7 @@
 import FreeCAD as App
 
 from freecad.oseexample.icon import get_icon_path
-import Part
-
+from freecad.oseexample.part_feature import create_bolt
 
 class AddBoltCommand:
     """Command to add bolt."""
@@ -13,8 +12,8 @@ class AddBoltCommand:
         document = App.ActiveDocument
         if not document:
             document = App.newDocument()
-        Part.show(Part.makeBox(10, 10, 10))
-        # document.recompute()
+        create_bolt(document, 'Bolt')
+        document.recompute()
 
     def IsActive(self):
         return True
