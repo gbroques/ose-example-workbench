@@ -6,9 +6,10 @@ from oseexample.part._hexagonal_prism import HexagonalPrism
 class Bolt:
 
     @staticmethod
-    def make() -> Part.Shape:
-        minimal_diameter = 10.0
-        height = 6.0
-        shaft = Part.makeCylinder(3, 35)
-        hexagonal_prism = HexagonalPrism.make(minimal_diameter, height)
-        return shaft.fuse(hexagonal_prism).removeSplitter()
+    def make(flat_to_flat_distance: float = 10.0,
+             head_height: float = 6.0,
+             shaft_radius: float = 3.0,
+             shaft_height: float = 35.0) -> Part.Solid:
+        bolt_head = HexagonalPrism.make(flat_to_flat_distance, head_height)
+        shaft = Part.makeCylinder(shaft_radius, shaft_height)
+        return bolt_head.fuse(shaft).removeSplitter()
