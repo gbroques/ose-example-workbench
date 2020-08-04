@@ -9,15 +9,25 @@ class BoltModel(Model):
 
     def __init__(self, obj):
         super(BoltModel, self).__init__(obj)
-        # TODO: Add custom properties
-        # obj.addProperty('App::PropertyLength', 'PropertyName',
-        #         'Base', 'Descriptive tooltip').PropertyName = 10.0
+        obj.addProperty('App::PropertyLength', 'WidthAcrossFlats',
+                        'Base', 'Flat-to-flat distance.').WidthAcrossFlats = 10.0
+        obj.addProperty('App::PropertyLength', 'HeadHeight',
+                        'Base', 'Height of bolt head.').HeadHeight = 6.0
+        obj.addProperty('App::PropertyLength', 'ShaftRadius',
+                        'Base', 'Radius of shaft.').ShaftRadius = 3.0
+        obj.addProperty('App::PropertyLength', 'ShaftHeight',
+                        'Base', 'Radius of shaft.').ShaftHeight = 35.0
 
     def execute(self, obj):
         """
         Called on document recompute
         """
-        obj.Shape = Bolt.make()
+        flat_to_flat_distance = obj.WidthAcrossFlats.Value
+        head_height = obj.HeadHeight.Value
+        shaft_radius = obj.ShaftRadius.Value
+        shaft_height = obj.ShaftHeight.Value
+        obj.Shape = Bolt.make(flat_to_flat_distance,
+                              head_height, shaft_radius, shaft_height)
 
     def __getstate__(self):
         return self.Type
