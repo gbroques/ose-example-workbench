@@ -16,7 +16,7 @@ class BoltModel(Model):
         obj.addProperty('App::PropertyLength', 'ShaftRadius',
                         'Base', 'Radius of shaft.').ShaftRadius = 3.0
         obj.addProperty('App::PropertyLength', 'ShaftHeight',
-                        'Base', 'Radius of shaft.').ShaftHeight = 35.0
+                        'Base', 'Height of shaft.').ShaftHeight = 35.0
 
     def execute(self, obj):
         """
