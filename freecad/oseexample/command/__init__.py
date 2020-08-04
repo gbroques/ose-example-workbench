@@ -1,4 +1,9 @@
-"""Commands users can perform in FreeCAD's GUI."""
+from ._add_bolt import AddBoltCommand
 from ._add_hex_nut import AddHexNutCommand
 
-__all__ = ['AddHexNutCommand']
+"""Commands users can perform in FreeCAD's GUI."""
+
+__all__ = [
+    'AddBoltCommand',
+    'AddHexNutCommand'
+]
